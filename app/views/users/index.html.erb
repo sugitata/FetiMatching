@@ -1,0 +1,74 @@
+<style type="text/css"><!--
+/*ここに調整CSS記述*/
+.jumbotron { background:url(/images/head6.jpg) center no-repeat; background-size: cover; }
+--></style>
+<div class="jumbotron">
+<div class="container">
+
+<h2 style="color: white;">Choose interested person...</h2>
+</div>
+</div>
+
+<div class="container">
+
+<div class="alarm">
+<p id="notice"><%= notice %></p>
+</div>
+
+ <div class="row">  
+  <div class="col-lg-3 index-prof">
+  	
+ <%= render 'users/user_prof' %>
+
+  </div>
+
+
+  <div class="col-lg-9">  
+    <div class="row">
+		<% @users.each do |user| %>
+
+	     
+         <div class="col-md-4 card"> 
+  
+         <div class="box">
+          <% if user.image? %>
+    　       <div><%=  image_tag user.image.url, :class => 'samune img-thumbnail' %></div>
+          <% else %>
+    　       <div><%= image_tag 'noimage.gif', :class => 'samune' %>        </div>
+          <% end %>
+         
+          
+    　　　　
+		   <div class="user-name">
+		    <span>　</span><%= link_to user.name, user_path(user) %>
+		    <span class="sub-prof">
+		     (<%= user.age %>)<span>　</span><%= user.place %>
+		    </span>
+		   </div>
+
+		   <div class="tubuyaki"><span>　</span><%= user.tubuyaki %></div>
+
+		   <div class="user-follow">
+            <% if user.followed_by? current_user %>
+              <%= link_to "フォロー解除", user_relationships_path(user), method: :delete, :class => "btn btn-warning btn-lg btn-block" %>
+            <% else %>
+              <%= link_to "フォロー", user_relationships_path(user), method: :post, :class => "btn btn-warning btn-lg btn-block" %>
+            <% end %>
+            
+            </div>
+
+           </div>
+         
+           </div>
+
+
+          <% end %>
+
+    </div>
+		   
+</div>
+</div>
+
+
+
+</div>

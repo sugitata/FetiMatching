@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Matching</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <style type="text/css"><!--
+/*ここに調整CSS記述*/
+.jumbotron { background:url(/images/bara.jpg) center no-repeat; background-size: cover; }
+--></style>
+</head>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container">
+        <!-- 2.ヘッダ情報 -->
+        <div class="navbar-header">
+            <a class="navbar-brand">Logo</a>
+        </div>
+        <!-- 3.リストの配置 -->
+        <ul class="nav navbar-nav">
+          <% if user_signed_in? %> 
+            <li><%= link_to "ユーザー一覧", users_path %></li>
+            <li><%= link_to "マイページ", user_path(current_user) %></li>
+            <li><%= link_to "プロフィール変更", edit_user_registration_path %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+  
+            <% else %>
+
+            <li><%= link_to "サインイン", new_user_registration_path %></li>
+            <li><%= link_to "ログイン", new_user_session_path %></li>
+          <% end %>
+
+        </ul>
+        <!-- 4.ボタン -->
+        
+    </div>
+  </nav>
+
+
+
+   <%= yield %>
+
+<div class="footer">Feti matching © 2016  All Rights Reserved.</div>
+</body>
+</html>
+
+
+<!-- ルーティングmessage移動させてある
+あとlink toのパスと(@userつけてある)
+messageモデルにuser_id作らないといけない？
+それとも外部キー選択できる？
+
+それ消せばもと通り -->
+
+
+
+<!-- もしuser/user_id/messageがそのuser_idの専用空間であるとしたら
+そのuser_idの部屋でcurrent_userのツイートを抽出
+さらにtweeted_idとcurrent_userが一致するツイートを抽出
+すれば一対一の -->
+
+<!-- current_userの そのuser_idに向けたメッセージ
+そのuser_idの current_userに向けたメッセージ -->
+
+
+
+

@@ -1,0 +1,276 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ *{
+ 	padding:0 ;
+ 	margin:0 ;
+ 
+ }
+
+
+ .clearfix::after{
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.yokohe{
+	
+	color: #008080;
+	font-size: 20px
+}
+
+.button-dayo{
+	padding: 30px;
+}
+
+.alarm{
+	text-align: center;
+	font-size: 16px;
+	line-height: 30px;
+	height: 30px;
+	background-color: #FFE4E1;
+	color: #FF7F50;
+}
+
+
+
+.user-ichiran{
+   background-color: #F5F5F5;
+}
+
+.
+.comment-desu{
+	float: left;
+	background-color: #F5F5F5;
+	margin:10px;
+	font-size: 20px;
+	list-style: none;
+
+}
+
+
+
+
+.box{
+	  background:white;
+      border: 1px #5F9EA0 solid; 
+      padding:15px;
+      margin-top: 30px;
+      box-shadow: 0 0 20px 6px #C0C0C0;
+
+      }
+
+.box:hover{
+	opacity: 0.7;
+}
+
+.samune{
+	width: 230px;
+	height: 180px;
+}
+
+.prof-image{
+	width: 555px;
+	height: 360px;
+}
+
+.prof-image2{
+	height: 200px;
+}
+
+.sub-prof{
+	font-size: 18px;
+}
+
+.show-name{
+	font-size: 50px;
+	color: #008080;
+	margin-bottom: 30px;
+}
+
+.user-params{
+    font-size: 30px;
+    color: #008080;
+}
+
+.prof{
+	font-size: 16px;
+}
+
+.prof-box{
+	margin:16px 0; 
+	padding-bottom:12px; 
+	padding-left: 12px; 
+	background-color: white;
+
+
+}
+
+.show-dayo{
+	background-color: #F5F5F5;
+	box-shadow: 0 0 20px 6px #DCDCDC;
+}
+
+.follow-dayo{
+	margin-top: 40px;
+	padding:10px 0; 
+}
+
+.tubuyaki{
+	background:url(/images/tweet.png)  center no-repeat;
+	background-size:230px 50px;
+	height: 60px;
+	font-size: 14px;
+	line-height: 70px;
+	color: #008080;
+
+}
+
+
+.user-name{
+	font-size: 24px;
+	color: #008080;
+}
+
+.user-follow{
+	margin-top: 15px;
+}
+
+.footer{
+	width: 100%;
+	height: 150px;
+	text-align: center;
+	margin-top: 100px;
+	font-size: 20px;
+	background-color: #5F9EA0;
+	color: white;
+	line-height: 200px;
+}
+
+.index-prof{
+	padding-bottom: 200px;
+}
+
+/*nav-bar 色変更*/
+/* navbar 全体の背景色とボーダーカラー */
+.navbar-default {
+background-color: #65baad;
+border-color: #3e6962;
+}
+/* navbar テキストカラー */
+.navbar-default .navbar-nav > li > a {
+color: #ffffff;
+}
+/* navbar hover,focus時のテキストカラー */
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+color: #26534c;
+background-color: transparent;
+}
+/* navbar active設定時のカラー */
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover {
+color: #26534c;
+background-color: #c3ede7;
+}
+/* navbar ドロップダウン(親)のカラー */
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>.open>a:hover {
+color: #3e6962;
+background-color: #c3ede7;
+}
+/* navbar ドロップダウン(子)のボックスカラー */
+.dropdown-menu {
+background-color: #65baad;
+border: 1px solid #3e6962;
+border: 1px solid #3e6962(0, 0, 0, .15);
+-webkit-box-shadow: 0 6px 12px rgba(94, 136, 129, 0.35);
+box-shadow: 0 6px 12px rgba(94, 136, 129, 0.35);
+}
+/* navbar ドロップダウン(子)テキストカラー */
+.dropdown-menu>li>a {
+color: #ffffff;
+}
+/* navbar ドロップダウン(子)focus,hover時のカラー */
+.dropdown-menu>li>a:focus,
+.dropdown-menu>li>a:hover {
+color: #26534c;
+background-color: #c3ede7;
+}
+/* navbar ドロップダウン(子)内の区切り線(class=”divider”)のカラー */
+.dropdown-menu .divider {
+background-color: #3e6962;
+}
+/* navbar 画面サイズ767px以下の時のカラー */
+@media (max-width:767px) {
+.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+color: #ffffff;
+}
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:focus,
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
+color: #26534c;
+background-color: transparent;
+}
+/* ドロップダウンactive設定時のカラー */
+.navbar-default .navbar-nav .open .dropdown-menu>.active>a,
+.navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus,
+.navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover {
+color: #ffb163;
+background-color: #d4ede9;
+}
+}
+/* navbar ハンバーガー四角枠 */
+.navbar-default .navbar-toggle {
+border-color: #ffffff;
+}
+/* navbar ハンバーガー三本線 */
+.navbar-default .navbar-toggle .icon-bar {
+background-color: #ffffff;
+}
+/* navbar ハンバーガーボタン,タップとホバーした時の背景色 */
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+background-color: #ffffff;
+}
+/* navbar ハンバーガーボタン,タップとホバーした時の四角枠 */
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+border-color: #65baad;
+}
+/* navbar ハンバーガーボタン,タップとホバーした時の三本線 */
+.navbar-default .navbar-toggle:focus > .icon-bar,
+.navbar-default .navbar-toggle:hover > .icon-bar {
+background-color: #65baad;
+}
+/* navbar Brandのカラー */
+.navbar-default .navbar-brand {
+color: #ff5555;
+}
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:hover {
+color: #ff5555;
+background-color: transparent;
+}
+
+.navbar{
+	margin-bottom: 0;
+
+}
+
+/*nav-bar色変更*/

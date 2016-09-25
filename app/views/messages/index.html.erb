@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="clearfix" style="width: 1040px; margin:0 auto;">
+
+    <ul style="list-style: none; float: left; font-size: 30px; background-color:  #F5F5F5; width: 400px; padding:10px 0; margin: 5px 50px;">
+             
+               <% @messages1.each do |message| %>
+
+                <% if @user1.image? %>
+    　            <div><%=  image_tag @user1.image.thumb.url %></div>
+                <% else %>
+    　            <div><%= image_tag 'noimage.gif' %></div>
+                <% end %>
+
+
+                  <li><%= message.tweet %></li>
+               <!-- メッセージ -->
+               <% end %>
+
+
+    </ul>
+
+
+    <ul style="list-style: none; float: left; font-size: 30px; background-color:  #F5F5F5;  width: 400px; padding:10px 0; margin: 5px 50px;">
+              <% @messages2.each do |message| %>
+              
+               <!-- ユーザーの写真 -->
+               <!-- ユーザーの名前 -->
+                   <li><%= message.tweet %></li>
+               <!-- メッセージ -->
+              
+               <% end %>
+    </ul>
+  </div>
+
+ <div><%= form_for(@message, url: user_messages_path) do |f| %>
+
+
+                 <div class="field">
+                  <%= f.label :tweet %><br>
+                  <%= f.text_field :tweet %>
+                 </div>
+
+                 <div class="field">
+                   <%= f.label :to_userid %><br>
+　                 送信先のユーザーIDを選択してください
+                   <%= f.collection_select :tweeted_id, User.all, :id, :id%>
+                 </div>
+
+                 <div class="actions">
+                  <%= f.submit "Submit" %>
+                 </div>
+
+              <% end %></div>
+</div>
