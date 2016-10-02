@@ -35,9 +35,9 @@
 
 <div>
 <% if @user.sex == 1 %>
- 男性(sex:1)
+ 男性
 <% else %>
- 女性(sex:2)
+ 女性
 <% end %>
        
 </div>
@@ -74,7 +74,11 @@
 <div class=" prof-box">
 <div class="user-params">Feti</div>
 
-<div><%= @user.category_fetis.join(', ') %></div>
+<div><% @user.category_fetis.compact.each do |feti| %>
+  <div class="feti-category"><%= feti %></div>
+<% end %>
+</div>
+
 
 </div>
 </div>
@@ -108,7 +112,7 @@
     </div>
 
 
-    <div class="col-md-6"><%= link_to "メッセージをやりとりする", user_messages_path(@user), :class => "btn btn-info btn-lg btn-block"%>
+    <div class="col-md-6"><%= link_to "チャットをする", messages_index_path, :class => "btn btn-info btn-lg btn-block"%>
     </div>
  </div>
 

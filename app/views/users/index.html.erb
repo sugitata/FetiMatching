@@ -15,6 +15,9 @@
 <p id="notice"><%= notice %></p>
 </div>
 
+
+
+
  <div class="row">  
   <div class="col-lg-3 index-prof">
   	
@@ -25,9 +28,14 @@
 
   <div class="col-lg-9">  
     <div class="row">
-		<% @users.each do |user| %>
 
-	     
+<!--     ここから追加した検索機能 -->
+
+  
+<!--   ここまで追加した検索機能 -->
+
+	  <% @users.each do |user| %>
+       <%= link_to user_path(user), :style => "text-decoration: none;" do %>
          <div class="col-md-4 card"> 
   
          <div class="box">
@@ -40,7 +48,7 @@
           
     　　　　
 		   <div class="user-name">
-		    <span>　</span><%= link_to user.name, user_path(user) %>
+		    <span>　</span><%= user.name %>
 		    <span class="sub-prof">
 		     (<%= user.age %>)<span>　</span><%= user.place %>
 		    </span>
@@ -60,6 +68,9 @@
            </div>
          
            </div>
+
+           <% end %>
+
 
 
           <% end %>

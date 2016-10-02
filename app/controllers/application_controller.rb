@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:sign_up, keys: [:place])
       devise_parameter_sanitizer.permit(:sign_up, keys: [:tall])
       devise_parameter_sanitizer.permit(:sign_up, keys: [:hobby])
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:categories_attributes])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [categories_attributes: %i(id feti _destroy)])
       devise_parameter_sanitizer.permit(:sign_up, keys: [:feti])
       devise_parameter_sanitizer.permit(:sign_up, keys: [:image])
       devise_parameter_sanitizer.permit(:sign_up, keys: [{ :sex => [] }])
@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:account_update, keys: [:place])
       devise_parameter_sanitizer.permit(:account_update, keys: [:tall])
       devise_parameter_sanitizer.permit(:account_update, keys: [:hobby])
-      devise_parameter_sanitizer.permit(:account_update, keys: [:categories_attributes])
+      devise_parameter_sanitizer.permit(:account_update, keys: [categories_attributes: %i(id feti _destroy)])
       devise_parameter_sanitizer.permit(:account_update, keys: [:feti])
       devise_parameter_sanitizer.permit(:account_update, keys: [:image])
       devise_parameter_sanitizer.permit(:account_update, keys: [{ :sex => [] }])
@@ -39,6 +39,7 @@ class ApplicationController < ActionController::Base
       # 保存してくれるようにするもの
     end
 
+    
 
    
 end

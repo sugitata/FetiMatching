@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
 
-  devise_for :users
 
+  devise_for :users
+  get 'messages/index'
+  post 'messages/create'
 
   # devise_scope :user do
   #   root :to => "devise/sessions#new"
@@ -11,13 +13,12 @@ Rails.application.routes.draw do
   
   
 
-  resources :users, only: [:index, :edit, :update, :show] do
+  resources :users, only: [:index, :edit, :update, :show, :new] do
 
   resource :relationships, only: [:create, :destroy]
-  resources :messages , only: [:index, :create, :destroy]
+  # resources :messages , only: [:index, :create, :destroy]
   get :follows, on: :member
   get :followers, on: :member
-
 
   # post '/users/:id/follows' 
 

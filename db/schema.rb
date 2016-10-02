@@ -20,17 +20,8 @@ ActiveRecord::Schema.define(version: 20160925021553) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "categories", ["user_id", "feti"], name: "index_categories_on_user_id_and_feti", unique: true
   add_index "categories", ["user_id"], name: "index_categories_on_user_id"
-
-  create_table "categorys", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "feti"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "categorys", ["user_id", "feti"], name: "index_categorys_on_user_id_and_feti", unique: true
-  add_index "categorys", ["user_id"], name: "index_categorys_on_user_id"
 
   create_table "messages", force: :cascade do |t|
     t.datetime "created_at", null: false

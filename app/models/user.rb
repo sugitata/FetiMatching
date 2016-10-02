@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :name, presence: true, length: { maximum: 10 }
+  validates :name, presence: true, uniqueness: true, length: { maximum: 10 }
   validates :tubuyaki, presence: true, length: { maximum: 10 }
 
   # validates :sex, presence: true, uniqueness: true
@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   # カテゴリーの紐付け　一対多
 
 
-  has_many :messages
+  # has_many :messages
   # messageと一対多の関係
 
   has_many :relationships, foreign_key: :follower_id

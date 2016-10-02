@@ -1,54 +1,78 @@
+<style type="text/css"><!--
+/*ここに調整CSS記述*/
+.jumbotron { background:url(/images/head6.jpg) center no-repeat; background-size: cover; }
+--></style>
+<div>
 <div class="container">
-  <div class="clearfix" style="width: 1040px; margin:0 auto;">
 
-    <ul style="list-style: none; float: left; font-size: 30px; background-color:  #F5F5F5; width: 400px; padding:10px 0; margin: 5px 50px;">
-             
-               <% @messages1.each do |message| %>
-
-                <% if @user1.image? %>
-    　            <div><%=  image_tag @user1.image.thumb.url %></div>
-                <% else %>
-    　            <div><%= image_tag 'noimage.gif' %></div>
-                <% end %>
+<h2 style="color: white;">Send Message!</h2>
+</div>
+</div>
 
 
-                  <li><%= message.tweet %></li>
-               <!-- メッセージ -->
-               <% end %>
+<div class="container">
 
 
-    </ul>
+<div class="row">  
+  <div class="col-lg-3 index-prof">
+    
+ <%= render 'users/user_prof' %>
 
-
-    <ul style="list-style: none; float: left; font-size: 30px; background-color:  #F5F5F5;  width: 400px; padding:10px 0; margin: 5px 50px;">
-              <% @messages2.each do |message| %>
-              
-               <!-- ユーザーの写真 -->
-               <!-- ユーザーの名前 -->
-                   <li><%= message.tweet %></li>
-               <!-- メッセージ -->
-              
-               <% end %>
-    </ul>
   </div>
 
- <div><%= form_for(@message, url: user_messages_path) do |f| %>
+<div class="col-lg-9">
+ <div class="row">
+  
+    <div id="userimg" style="display: none"><%= current_user.image.url %></div>
+    <div id="username" style="display: none"><%= current_user.name %></div>
+
+    <div class="message-box">
+      <div id="message_box">
+        <!-- message will be shown here -->
+        </div>
+      <div class="message-bottom"></div>  
+    </div>
+
+    <div class="input-group">
+    <input type="text" id="message_input" class="form-control input-lg">
+    <span class="input-group-btn">
+    <input type="button" id="send_message" value="send" class="btn btn-primary btn-lg">
+    </span>
+    </div>
 
 
-                 <div class="field">
-                  <%= f.label :tweet %><br>
-                  <%= f.text_field :tweet %>
-                 </div>
-
-                 <div class="field">
-                   <%= f.label :to_userid %><br>
-　                 送信先のユーザーIDを選択してください
-                   <%= f.collection_select :tweeted_id, User.all, :id, :id%>
-                 </div>
-
-                 <div class="actions">
-                  <%= f.submit "Submit" %>
-                 </div>
-
-              <% end %></div>
+ </div>
 </div>
+</div>
+</div>
+
+
+<script>
+
+$(document).ready(function(e){
+ 
+  var dispatcher = new WebSocketRails('localhost:3000/websocket');
+
+
+  $(document).on("click", "#send_message", function(e){
+    message_text = $("#message_input").val();
+    user_img = $("#userimg").text()
+    user_name = $("#username").text()
+    dispatcher.trigger("send_message", { img: user_img , body: message_text , name: user_name }
+      );
+  });
+
+  dispatcher.bind("show_message", function(message){
+    $("#message_box").append( "<p>" + "<img src=" + message.img + ">" + "<span>" + message.body + "</span>" + "<em>" + message.name + "</em>" + "</p>" );
+  });
+});
+
+var position = $(".message-bottom").offset().top;
+$("#send_message").click(function(){
+    $(".message-box").animate({
+        scrollTop : position
+    }, {
+        queue : false
+    });
+  });
+</script>

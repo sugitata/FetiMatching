@@ -26,9 +26,9 @@
 
 <div>
 <% if current_user.sex == 1 %>
- 男性(sex:1)
+ 男性
 <% else %>
- 女性(sex:2)
+ 女性
 <% end %>
        
 </div>
@@ -61,7 +61,10 @@
 <div class="prof-box">
 <div class="user-params">Feti</div>
 
-<div><%= current_user.category_fetis.join(', ') %></div>
+<div><% current_user.category_fetis.compact.each do |feti| %>
+  <div class="feti-category"><%= feti %></div>
+<% end %>
+</div>
 
 </div>
 </div>

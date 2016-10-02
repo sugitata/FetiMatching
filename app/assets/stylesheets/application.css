@@ -17,9 +17,13 @@
  *{
  	padding:0 ;
  	margin:0 ;
+ 	text-decoration: none;
  
  }
 
+a{
+	text-decoration: none;
+}
 
  .clearfix::after{
     display: block;
@@ -70,12 +74,12 @@
       border: 1px #5F9EA0 solid; 
       padding:15px;
       margin-top: 30px;
-      box-shadow: 0 0 20px 6px #C0C0C0;
+      box-shadow: 0 0px 10px 0px #C0C0A0;
 
       }
 
 .box:hover{
-	opacity: 0.7;
+	opacity: 0.8;
 }
 
 .samune{
@@ -122,7 +126,7 @@
 
 .show-dayo{
 	background-color: #F5F5F5;
-	box-shadow: 0 0 20px 6px #DCDCDC;
+	box-shadow: 0 0px 10px 0px #C0C0A0;
 }
 
 .follow-dayo{
@@ -131,7 +135,7 @@
 }
 
 .tubuyaki{
-	background:url(/images/tweet.png)  center no-repeat;
+	background:url(/images/tweet.png) no-repeat;
 	background-size:230px 50px;
 	height: 60px;
 	font-size: 14px;
@@ -164,6 +168,58 @@
 .index-prof{
 	padding-bottom: 200px;
 }
+
+.feti-category{
+	display: inline-block;
+	padding: 10px;
+	margin: 10px;
+	margin-left: 0;
+	font-size: 18px;
+	color: white;
+	background-color: #2E8B57;
+	border-radius: 10px;
+
+}
+
+div.message-box span{
+	margin-left: 10px;
+	padding: 10px 20px;
+	font-size: 22px;
+	border-radius: 10px;
+	background-color: #AFEEEE;
+	color: gray;
+
+
+}
+
+div.message-box em{
+    margin-left: 16px;
+    vertical-align: -12px;
+    color: gray;
+}
+
+div.message-box p{
+	margin-top: 20px;
+	margin-left: 30px;
+	color: gray;
+
+}
+
+div.message-box img{
+	width: 90px;
+	height: 80px;
+	border-radius: 50%;
+}
+
+.message-box{
+	margin:30px 0;
+	overflow: scroll;
+	height: 500px;
+	border: ridge;
+	border-radius: 20px;
+}
+
+
 
 /*nav-bar 色変更*/
 /* navbar 全体の背景色とボーダーカラー */

@@ -8,9 +8,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    params[:user][:categories_attributes].each { |index, hash| hash[:_destroy] = hash[:feti].blank? }
+    super
+  end
 
   # GET /resource/edit
   # def edit
