@@ -1,6 +1,31 @@
 source 'https://rubygems.org'
 
 
+  gem 'devise'
+
+
+
+  gem 'better_errors'
+
+  gem 'binding_of_caller'
+
+
+  gem 'carrierwave'
+
+
+  gem 'rmagick'
+
+  gem 'therubyracer'
+
+  gem 'less-rails'
+  
+  gem 'twitter-bootstrap-rails' 
+
+  gem "websocket-rails"
+
+  gem 'faye-websocket', '0.10.0'
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
@@ -43,33 +68,6 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-
-
-  gem 'devise'
-
-
-
-  gem 'better_errors'
-
-  gem 'binding_of_caller'
-
-
-  gem 'carrierwave'
-
-
-  gem 'rmagick'
-
-  gem 'therubyracer'
-
-  gem 'less-rails'
-  
-  gem 'twitter-bootstrap-rails' 
-
-  gem "websocket-rails"
-
-  gem 'faye-websocket', '0.10.0'
-
-  
   
 end
 
