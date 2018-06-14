@@ -1,32 +1,20 @@
 class UsersController < ApplicationController
-
-
-	# ここからチェックボックスコピー
-
 	before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
   def index
-
   	if current_user.sex == 1
       @users = User.where( sex: "2")
     else
       @users = User.where( sex: "1")
     end
-
-
   end
-
-  
-
-  # この条件かつcurrent_userのcategoryがusersと一つ以上一緒だったら
 
   # GET /users/1
   # GET /users/1.json
   def show
   end
-
   # GET /users/new
 
   def new
@@ -34,7 +22,6 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-
   def edit
   end
 
@@ -79,8 +66,6 @@ class UsersController < ApplicationController
   #   end
   # end
 
-
-
   def follows
     @user = User.find(params[:id])
   end
@@ -88,10 +73,6 @@ class UsersController < ApplicationController
   def followers
     @user = User.find(params[:id])
   end
-
-
-
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -106,8 +87,4 @@ class UsersController < ApplicationController
       params.require(:user).permit({ :sex => [] })
       params.require(:user).permit(:image)
     end
-
-
-# 　　　ここまでチェックボックスコピー
-
 end

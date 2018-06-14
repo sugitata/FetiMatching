@@ -13,8 +13,6 @@ class User < ActiveRecord::Base
 
   has_many :categories, inverse_of: :user
   # カテゴリーの紐付け　一対多
-
-
   # has_many :messages
   # messageと一対多の関係
 
@@ -24,35 +22,23 @@ class User < ActiveRecord::Base
   has_many :inverse_follows, foreign_key: :following_id, class_name: Relationship
   has_many :followers, through: :inverse_follows
 
-
   def followed_by? user
     inverse_follows.where(follower_id: user.id).exists?
   end
 
   accepts_nested_attributes_for :categories, allow_destroy: true
 
-  
-
   def category_fetis
     categories.map(&:feti)
   end
-
   # def user_sex
   #   users.map(&:sex)
   # end
-
-
-
-# うpろだ名
   mount_uploader :image, ImageUploader
 
-       
+  # has_many :relationships, foreign_key: :follower_id
+  # has_many :followings, through: :relationships
 
-         # has_many :relationships, foreign_key: :follower_id
-         # has_many :followings, through: :relationships
-
-         # has_many :inverse_follows, foreign_key: :following_id, class_name: Relationship
-         # has_many :followers, through: :inverse_follows
-
-
+  # has_many :inverse_follows, foreign_key: :following_id, class_name: Relationship
+  # has_many :followers, through: :inverse_follows
 end

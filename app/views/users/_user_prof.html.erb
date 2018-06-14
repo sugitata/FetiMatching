@@ -1,70 +1,56 @@
-   <div class="card">
-
-<% if current_user.image? %>
-    　 <div><%=  image_tag current_user.image.url, :class => 'prof-image2 img-thumbnail' %></div>
-<% else %>
-    　 <div><%= image_tag 'noimage.gif', :class => 'prof-image img-thumbnail' %></div>
-<% end %>
-
+ <div class="card">
+  <% if current_user.image? %>
+  　 <div><%=  image_tag current_user.image.url, :class => 'prof-image2 img-thumbnail' %></div>
+  <% else %>
+  　 <div><%= image_tag 'noimage.gif', :class => 'prof-image img-thumbnail' %></div>
+  <% end %>
 </div>
 
-<div class="card"> 
-
-<div class="show-name prof-box"><%= current_user.name %><span>　</span><h4><%= current_user.age %><span>　</span>歳</h4></div>
-  <div class="row"> 
-     <div class="col-md-6">
-          <%= link_to "Following", follows_user_path(current_user.id), :class => "btn btn-default btn-lg btn-block" %><br>
-          </div>
-     <div class="col-md-6">     
-          <%= link_to "Followed", followers_user_path(current_user.id), :class => "btn btn-default btn-lg btn-block" %>
-          </div>
+<div class="card">
+  <div class="show-name prof-box">
+    <%= current_user.name %><span>　</span><h4><%= current_user.age %><span>　</span>歳</h4>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <%= link_to "Following", follows_user_path(current_user.id), :class => "btn btn-default btn-lg btn-block" %><br>
+    </div>
+    <div class="col-md-6">
+      <%= link_to "Followed", followers_user_path(current_user.id), :class => "btn btn-default btn-lg btn-block" %>
+    </div>
   </div>
 
-
-    <div class=" prof-box">
-<div class="user-params">Sex</div>
-
-<div>
-<% if current_user.sex == 1 %>
- 男性
-<% else %>
- 女性
-<% end %>
-       
-</div>
-</div>
-
+  <div class=" prof-box">
+    <div class="user-params">Sex</div>
+    <div>
+      <% if current_user.sex == 1 %>
+      男性
+      <% else %>
+      女性
+      <% end %>
+    </div>
+  </div>
   <div class="prof-box">
-<div class="user-params">Place</div>
-<div class="prof"><%= current_user.place %></div>
-   </div>
-
-
- 
-
-<div class="prof-box">
-<div class="user-params">Tall</div>
-<div class="prof"><%= current_user.tall %><span>　</span>cm</div>
-</div>
-
-<div class="prof-box">
-<div class="user-params">Hobby</div>
-<div class="prof"><%= current_user.hobby %></div>
-</div>
-
-<div class="prof-box">
-<div class="user-params">Introduction</div>
-<div class="prof"><%= current_user.naiyou %></div>
-</div>
-
-
-<div class="prof-box">
-<div class="user-params">Feti</div>
-
-<div><% current_user.category_fetis.compact.each do |feti| %>
-  <div class="feti-category"><%= feti %></div>
-<% end %>
-</div>
-
-</div>
+    <div class="user-params">Place</div>
+    <div class="prof"><%= current_user.place %></div>
+  </div>
+  <div class="prof-box">
+    <div class="user-params">Tall</div>
+    <div class="prof"><%= current_user.tall %><span>　</span>cm</div>
+  </div>
+  <div class="prof-box">
+    <div class="user-params">Hobby</div>
+    <div class="prof"><%= current_user.hobby %></div>
+  </div>
+  <div class="prof-box">
+    <div class="user-params">Introduction</div>
+    <div class="prof"><%= current_user.naiyou %></div>
+  </div>
+  <div class="prof-box">
+    <div class="user-params">Feti</div>
+    <div>
+      <% current_user.category_fetis.compact.each do |feti| %>
+        <div class="feti-category"><%= feti %></div>
+      <% end %>
+    </div>
+  </div>
 </div>

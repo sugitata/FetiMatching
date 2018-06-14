@@ -256,6 +256,7 @@ DEPENDENCIES
   less-rails
   minitest-rails
   minitest-rails-capybara
+  nokogiri (= 1.6.8)
   pg (= 0.17.1)
   rails (= 4.2.4)
   rails_12factor (= 0.0.2)
@@ -272,4 +273,4 @@ DEPENDENCIES
   websocket-rails
 
 BUNDLED WITH
-   1.12.5
+   1.14.6

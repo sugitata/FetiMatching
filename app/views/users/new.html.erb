@@ -1,0 +1,24 @@
+<%= form_for(@user) do |f| %>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-10">
+      <div>
+        <strong>Tell us your fetis!</strong>
+      </div>
+      <% categories = @user.categories.map {|record| [record.feti, record] }.to_h %>
+      <% Category.fetis.each_with_index do |(feti, value), index| %>
+        <label>
+          <% category = categories[feti] %>
+          <% name_prefix = "user[categories_attributes][#{index}]" %>
+          <%= hidden_field_tag "#{name_prefix}[id]", category.try(:id) %>
+          <% checked = category.present? && !category.marked_for_destruction? %>
+          <%= check_box_tag "#{name_prefix}[feti]", feti, checked %>
+          <%= feti %>
+        </label>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

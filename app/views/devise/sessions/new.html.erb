@@ -5,47 +5,41 @@
 --></style>
 
 <div class="jumbotron">
-
-
-<div class="container yokohe">
-<div class="form-horizontal" role="form">
-
-<div class="form-group"><h1>Log in</h1></div>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field form-group">
-    <%= f.label :email, :class => 'col-sm-3 control-label' %><br />
-    <div class="col-sm-7">
-    <%= f.email_field :email, autofocus: true %>
-    </div>
-  </div>
-
-  <div class="field form-group">
-    <%= f.label :password, :class => 'col-sm-3 control-label' %><br />
-    <div class="col-sm-7">
-    <%= f.password_field :password, autocomplete: "off" %>
-    </div>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field form-group">
-    <div class="col-sm-offset-3 col-sm-10">
-      <%= f.check_box :remember_me %>
+  <div class="container yokohe">
+    <div class="form-horizontal" role="form">
+      <div class="form-group">
+        <h1>Log in</h1>
       </div>
-      <%= f.label :remember_me, :class => 'col-sm-3 control-label' %>
-    </div>
-  <% end -%>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field form-group">
+          <%= f.label :email, :class => 'col-sm-3 control-label' %><br />
+          <div class="col-sm-7">
+          <%= f.email_field :email, autofocus: true %>
+          </div>
+        </div>
 
-  <div class="actions form-group">
-  <div class="col-sm-offset-3 col-sm-10">
-    <%= f.submit "Log in", :class => "btn btn-primary btn-lg" %>
+        <div class="field form-group">
+          <%= f.label :password, :class => 'col-sm-3 control-label' %><br />
+          <div class="col-sm-7">
+          <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+          <div class="field form-group">
+          <div class="col-sm-offset-3 col-sm-10">
+            <%= f.check_box :remember_me %>
+            </div>
+            <%= f.label :remember_me, :class => 'col-sm-3 control-label' %>
+          </div>
+        <% end -%>
+
+        <div class="actions form-group">
+          <div class="col-sm-offset-3 col-sm-10">
+            <%= f.submit "Log in", :class => "btn btn-primary btn-lg" %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
-<% end %>
-
-</div>
-
-
-</div>
-
 </div>

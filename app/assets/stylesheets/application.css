@@ -14,33 +14,26 @@
  *= require_self
  */
 
- *{
+*{
  	padding:0 ;
  	margin:0 ;
  	text-decoration: none;
- 
- }
-
+}
 a{
 	text-decoration: none;
 }
-
- .clearfix::after{
-    display: block;
-    content: "";
-    clear: both;
+.clearfix::after{
+  display: block;
+  content: "";
+  clear: both;
 }
-
 .yokohe{
-	
 	color: #008080;
 	font-size: 20px
 }
-
 .button-dayo{
 	padding: 30px;
 }
-
 .alarm{
 	text-align: center;
 	font-size: 16px;
@@ -49,13 +42,9 @@ a{
 	background-color: #FFE4E1;
 	color: #FF7F50;
 }
-
-
-
 .user-ichiran{
    background-color: #F5F5F5;
 }
-
 .comment-desu{
 	float: left;
 	background-color: #F5F5F5;
@@ -63,75 +52,56 @@ a{
 	font-size: 20px;
 	list-style: none;
 }
-
-
-
-
 .box{
-	  background:white;
-      border: 1px #5F9EA0 solid; 
-      padding:15px;
-      margin-top: 30px;
-      box-shadow: 0 0px 10px 0px #C0C0A0;
-
-      }
-
+  background:white;
+  border: 1px #5F9EA0 solid;
+  padding:15px;
+  margin-top: 30px;
+  box-shadow: 0 0px 10px 0px #C0C0A0;
+}
 .box:hover{
 	opacity: 0.8;
 }
-
 .samune{
 	width: 230px;
 	height: 180px;
 }
-
 .prof-image{
 	width: 555px;
 	height: 360px;
 }
-
 .prof-image2{
 	height: 200px;
 }
-
 .sub-prof{
 	font-size: 18px;
 }
-
 .show-name{
 	font-size: 50px;
 	color: #008080;
 	margin-bottom: 30px;
 }
-
 .user-params{
-    font-size: 30px;
-    color: #008080;
+  font-size: 30px;
+  color: #008080;
 }
-
 .prof{
 	font-size: 16px;
 }
-
 .prof-box{
-	margin:16px 0; 
-	padding-bottom:12px; 
-	padding-left: 12px; 
+	margin:16px 0;
+	padding-bottom:12px;
+	padding-left: 12px;
 	background-color: white;
-
-
 }
-
 .show-dayo{
 	background-color: #F5F5F5;
 	box-shadow: 0 0px 10px 0px #C0C0A0;
 }
-
 .follow-dayo{
 	margin-top: 40px;
-	padding:10px 0; 
+	padding:10px 0;
 }
-
 .tubuyaki{
 	background:url(/images/tweet.png) no-repeat;
 	background-size:230px 50px;
@@ -139,19 +109,14 @@ a{
 	font-size: 14px;
 	line-height: 70px;
 	color: #008080;
-
 }
-
-
 .user-name{
 	font-size: 24px;
 	color: #008080;
 }
-
 .user-follow{
 	margin-top: 15px;
 }
-
 .footer{
 	width: 100%;
 	height: 150px;
@@ -162,11 +127,9 @@ a{
 	color: white;
 	line-height: 200px;
 }
-
 .index-prof{
 	padding-bottom: 200px;
 }
-
 .feti-category{
 	display: inline-block;
 	padding: 10px;
@@ -176,9 +139,7 @@ a{
 	color: white;
 	background-color: #2E8B57;
 	border-radius: 10px;
-
 }
-
 div.message-box span{
 	margin-left: 10px;
 	padding: 10px 20px;
@@ -186,29 +147,22 @@ div.message-box span{
 	border-radius: 10px;
 	background-color: #AFEEEE;
 	color: gray;
-
-
 }
-
 div.message-box em{
-    margin-left: 16px;
-    vertical-align: -12px;
-    color: gray;
+  margin-left: 16px;
+  vertical-align: -12px;
+  color: gray;
 }
-
 div.message-box p{
 	margin-top: 20px;
 	margin-left: 30px;
 	color: gray;
-
 }
-
 div.message-box img{
 	width: 90px;
 	height: 80px;
 	border-radius: 50%;
 }
-
 .message-box{
 	margin:30px 0;
 	overflow: scroll;
@@ -216,7 +170,6 @@ div.message-box img{
 	border: ridge;
 	border-radius: 20px;
 }
-
 
 
 /*nav-bar 色変更*/
@@ -321,10 +274,6 @@ color: #ff5555;
 color: #ff5555;
 background-color: transparent;
 }
-
 .navbar{
 	margin-bottom: 0;
-
 }
-
-/*nav-bar色変更*/

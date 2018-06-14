@@ -1,83 +1,17 @@
 Rails.application.routes.draw do
 
-
-
   devise_for :users
   get 'messages/index'
   post 'messages/create'
 
-  # devise_scope :user do
-  #   root :to => "devise/sessions#new"
-  # end
-  # これでホーム画面をログインのとこにする
-  
-  
-
   resources :users, only: [:index, :edit, :update, :show, :new] do
-
-  resource :relationships, only: [:create, :destroy]
-  # resources :messages , only: [:index, :create, :destroy]
-  get :follows, on: :member
-  get :followers, on: :member
-
-  # post '/users/:id/follows' 
-
-  # ここでフォロワー　一覧などのルーティング
+    resource :relationships, only: [:create, :destroy]
+    # resources :messages , only: [:index, :create, :destroy]
+    get :follows, on: :member
+    get :followers, on: :member
   end
 
-  
-
   root 'users#index'
-  # これでホーム画面をユーザー一覧のとこにする
-
-
-
-
-
-  # 質問
-
-
-  # ・deviseのストロングパラメーターやってるのにfetiが保存されない
-
-  # ・カテゴリによる絞り込みがどうやってやるのかイメージわかない
-  # ・user indexで自分以外を表示する方法 <-どうせ男女で絞り込むからいらない
-
-#       if correct_userが1(男)ならuser#indexに0(女)だけ表示
-# 　　else 0(女)なら1だけ表示
-#   　　and 　
-#       if fetiが1つでも一緒ならuser#indexに表示
-#     else
-
-#       みたいなイメージ
-
-  # ・メッセージのやりとりの仕方がわからない　
-  # 　どうすれば一対一でポストを投げ会えるのか
-  # ・マッチングの仕方がわからない　noticeでマッチング報告?
-  # 　category_userが中間テーブル？
-
-  # ・ ページ遷移を完成させる
-
-
-
-
-  # messages controllerを新しくつくる
-  # message tableつくってそれを出しまくる
-  # current_id  idだけのものをwhereで表示
-  # index　 
-  # create 
-  # destroy 
-
-  # messageの投げ合いはcurrent_idが右側 idが左でcssでいじる
-  # 個別の部屋はshowが個別の部屋なんだからできるはず
-
-  # userに対してmessageはpostみたいなイメージで一対多
-
-
-
-
-# カテゴリ使うのは絞り込むときだけ
-# そのあとは相互フォローによるマッチング
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

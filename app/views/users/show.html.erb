@@ -3,126 +3,83 @@
 .jumbotron { background:url(/images/head6.jpg) center no-repeat; background-size: cover; }
 --></style>
 <div class="jumbotron">
-<div class="container">
-
-<h2 style="color: white;">User detail</h2>
+  <div class="container">
+    <h2 style="color: white;">User detail</h2>
+  </div>
 </div>
-</div>
 
 <div class="container">
-
-
-<p id="notice"><%= notice %></p>
-
-
-
-<div class="row show-dayo">
-<div class="col-md-6 card"> 
-
-<div class="show-name prof-box"><%= @user.name %></div>
-  <div class="row"> 
-     <div class="col-md-6">
+  <p id="notice"><%= notice %></p>
+  <div class="row show-dayo">
+    <div class="col-md-6 card">
+      <div class="show-name prof-box"><%= @user.name %></div>
+      <div class="row">
+        <div class="col-md-6">
           <%= link_to "Following", follows_user_path, :class => "btn btn-default btn-lg btn-block" %><br>
-          </div>
-     <div class="col-md-6">     
+        </div>
+        <div class="col-md-6">
           <%= link_to "Followed", followers_user_path, :class => "btn btn-default btn-lg btn-block" %>
-          </div>
+        </div>
+      </div>
+      <div class=" prof-box">
+        <div class="user-params">Sex</div>
+        <div>
+          <% if @user.sex == 1 %>
+          男性
+          <% else %>
+          女性
+          <% end %>
+        </div>
+      </div>
+      <div class=" prof-box">
+        <div class="user-params">Age</div>
+        <div class="prof"><%= @user.age %><span>　</span>歳</div>
+      </div>
+      <div class=" prof-box">
+        <div class="user-params">Place</div>
+        <div class="prof"><%= @user.place %></div>
+      </div>
+      <div class=" prof-box">
+        <div class="user-params">Tall</div>
+        <div class="prof"><%= @user.tall %><span>　</span>cm</div>
+      </div>
+      <div class=" prof-box">
+        <div class="user-params">Hobby</div>
+        <div class="prof"><%= @user.hobby %></div>
+      </div>
+      <div class=" prof-box">
+        <div class="user-params">Introduction</div>
+        <div class="prof"><%= @user.naiyou %></div>
+      </div>
+      <div class=" prof-box">
+        <div class="user-params">Feti</div>
+        <div><% @user.category_fetis.compact.each do |feti| %>
+          <div class="feti-category"><%= feti %></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 card">
+      <% if @user.image? %>
+      　 <div><%=  image_tag @user.image.url, :class => 'prof-image img-thumbnail' %></div>
+      <% else %>
+      　 <div><%= image_tag 'noimage.gif', :class => 'prof-image img-thumbnail' %></div>
+      <% end %>
+    </div>
   </div>
 
-
-    <div class=" prof-box">
-<div class="user-params">Sex</div>
-
-<div>
-<% if @user.sex == 1 %>
- 男性
-<% else %>
- 女性
-<% end %>
-       
-</div>
-</div>
-
-<div class=" prof-box">
-<div class="user-params">Age</div>
-<div class="prof"><%= @user.age %><span>　</span>歳</div>
-</div>
-
-  <div class=" prof-box">
-<div class="user-params">Place</div>
-<div class="prof"><%= @user.place %></div>
-   </div>
-
- 
-
-<div class=" prof-box">
-<div class="user-params">Tall</div>
-<div class="prof"><%= @user.tall %><span>　</span>cm</div>
-</div>
-
-<div class=" prof-box">
-<div class="user-params">Hobby</div>
-<div class="prof"><%= @user.hobby %></div>
-</div>
-
-<div class=" prof-box">
-<div class="user-params">Introduction</div>
-<div class="prof"><%= @user.naiyou %></div>
-</div>
-
-
-<div class=" prof-box">
-<div class="user-params">Feti</div>
-
-<div><% @user.category_fetis.compact.each do |feti| %>
-  <div class="feti-category"><%= feti %></div>
-<% end %>
-</div>
-
-
-</div>
-</div>
-
-<div class="col-md-6 card">
-
-<% if @user.image? %>
-    　 <div><%=  image_tag @user.image.url, :class => 'prof-image img-thumbnail' %></div>
-<% else %>
-    　 <div><%= image_tag 'noimage.gif', :class => 'prof-image img-thumbnail' %></div>
-<% end %>
-
-</div>
-
-</div>
-
-
-<% if @user.id == current_user.id %>
-
-
-
-<% else %>
- <div class="row show-dayo follow-dayo">
-    <div class="follow-unfollow col-md-6">
+  <% if @user.id != current_user.id %>
+    <div class="row show-dayo follow-dayo">
+      <div class="follow-unfollow col-md-6">
         <% if @user.followed_by? current_user %>
-          <%= link_to "フォロー解除", user_relationships_path(@user), method: :delete, :class => "btn btn-warning btn-lg btn-block" %>
+        <%= link_to "フォロー解除", user_relationships_path(@user), method: :delete, :class => "btn btn-warning btn-lg btn-block" %>
         <% else %>
-          <%= link_to "フォロー", user_relationships_path(@user), method: :post, :class => "btn btn-warning btn-lg btn-block" %>
+        <%= link_to "フォロー", user_relationships_path(@user), method: :post, :class => "btn btn-warning btn-lg btn-block" %>
         <% end %>
-
+      </div>
+      <div class="col-md-6"><%= link_to "チャットをする", messages_index_path, :class => "btn btn-info btn-lg btn-block"%>
+      </div>
     </div>
-
-
-    <div class="col-md-6"><%= link_to "チャットをする", messages_index_path, :class => "btn btn-info btn-lg btn-block"%>
-    </div>
- </div>
-
-<% end %>
- 
-
- 
-
+  <% end %>
 </div>
-
-
-         
-

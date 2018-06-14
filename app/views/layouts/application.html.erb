@@ -14,37 +14,26 @@
 <body>
   <nav class="navbar navbar-default">
     <div class="container">
-        <!-- 2.ヘッダ情報 -->
         <div class="navbar-header">
             <img src="/images/loga.png" width="160px" height="45px" style="margin-right: 30px;">
         </div>
-        <!-- 3.リストの配置 -->
         <ul class="nav navbar-nav">
-          <% if user_signed_in? %> 
+          <% if user_signed_in? %>
             <li><%= link_to "ユーザー一覧", users_path %></li>
             <li><%= link_to "マイページ", user_path(current_user) %></li>
             <li><%= link_to "チャット", messages_index_path %></li>
             <li><%= link_to "プロフィール変更", edit_user_registration_path %></li>
-
             <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-  
-            <% else %>
-
+          <% else %>
             <li><%= link_to "サインイン", new_user_registration_path %></li>
             <li><%= link_to "ログイン", new_user_session_path %></li>
           <% end %>
-
         </ul>
-        <!-- 4.ボタン -->
-        
     </div>
   </nav>
+  <%= yield %>
 
-
-
-   <%= yield %>
-
-<div class="footer">Feti matching © 2016  All Rights Reserved.</div>
+  <div class="footer">Feti matching © 2016  All Rights Reserved.</div>
 </body>
 </html>
 
